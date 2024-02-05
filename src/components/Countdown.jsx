@@ -5,6 +5,7 @@ function Countdown() {
     const [diff , setDiff] = useState(0);
     const id = useRef(0); //we can't use state to clear the interval because it will re-render the component and the interval will be cleared
     function handleSubmit(){
+        clearInterval(id.current);
         id.current = setInterval(()=>{
             setDiff(new Date(target) - new Date());
         },1000);
@@ -35,8 +36,8 @@ function Countdown() {
         return Math.floor(secondsInMs / 1000);
     }
     return (
-        <>
-            <h1>Count down Timer app</h1>
+        <div class = "container">
+            <h1 className="heading">Count Down Timer app</h1>
             <div id ="input">
                 <input 
                     type="datetime-local" 
@@ -45,7 +46,7 @@ function Countdown() {
                     />
                 <button id="submit" onClick={handleSubmit}>Start</button>
             </div>
-            <div>{diff}</div>
+            {/* <div>{diff}</div> */}
             <div id="display">
                 <ul>
                     <li><span id="days">{getDays()}</span>Days</li>
@@ -54,7 +55,7 @@ function Countdown() {
                     <li><span id="seconds">{getSeconds()}</span>Seconds</li>
                 </ul>
             </div>
-        </>
+        </div>
     )
 }
 

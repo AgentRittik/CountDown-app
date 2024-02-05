@@ -1,9 +1,20 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.heading{
+    margin-top: 5rem;
+    font-size: 3rem;
+
+}
 #input{
     border: none;
     display: flex;
     justify-content: space-around;
     gap :1rem;
-    margin-top: 4rem;
+    margin-top: 3rem;
 }
 #datetime{
     padding :1rem;
@@ -11,14 +22,17 @@
 #submit{
     padding: 1rem;
     color : white;
-    background-color: #4CAF50;
+    background: rgb(41,222,217);
+    background: radial-gradient(circle, rgba(41,222,217,1) 0%, rgba(68,218,118,1) 100%);
     border: none;
+    font-size: large;
 }
 
 #display{
     margin-top: 35px;
     padding: 2rem;
-    background-color: dodgerblue;
+    background: rgb(40,157,207);
+    background: linear-gradient(13deg, rgba(40,157,207,1) 0%, rgba(7,66,240,1) 100%);
     color: black;
     border-radius: 20px;
     display: flex;
@@ -31,19 +45,29 @@ ul{
     justify-content: space-between;
     list-style: none;
     padding: 0;
+    gap:1rem;
 }
 
 li{
+    
     list-style-type: none;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: white;
 }
 
 span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 40px;
     background-color: aliceblue;
+    color: black;
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    min-width:55px;
+    min-height: 78px;
+
 }
