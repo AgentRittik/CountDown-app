@@ -57,7 +57,7 @@ li{
     color: white;
 }
 
-span{
+.wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,4 +70,27 @@ span{
     min-width:55px;
     min-height: 78px;
 
+}
+@keyframes slideIn {
+    25%{
+        transform: translateY(50%);
+        transform: translateZ(100%);
+    }
+    /* 45%{
+        transform: translateY(-50%);
+        transform: translateZ(-60%);
+        scale: -7;
+    } */
+    50%{
+        
+    }
+    100% {
+        transform: translateY(0);
+        transform: translateZ(0);
+        /* scale :0 */
+    }
+}
+
+.animate{
+    animation: slideIn 3s infinite;
 }

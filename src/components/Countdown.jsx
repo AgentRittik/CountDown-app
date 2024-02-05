@@ -3,6 +3,10 @@ import "./Countdown.css";
 function Countdown() {
     const [target, setTarget] = useState(null);
     const [diff , setDiff] = useState(0);
+    // const [days,setDays] = useState({value:0,animation:false});
+    // const [hours,setHours] = useState(0);
+    // const [minutes,setMinutes] = useState({value:0,animation:false});
+    // const [seconds,setSeconds] = useState(0);
     const id = useRef(0); //we can't use state to clear the interval because it will re-render the component and the interval will be cleared
     function handleSubmit(){
         clearInterval(id.current);
@@ -21,7 +25,16 @@ function Countdown() {
 
     const getDays = () => {
         // console.log(diff);
-        return Math.floor(diff/(1000*60*60*24));
+        const value =  Math.floor(diff/(1000*60*60*24));
+        // if(value !== days.value){
+        //     setDays({value: value, animation : true});
+        // }
+        // else{
+        //     if(days.animation == true){
+        //         setDays({value : value, animation : false})
+        //     }  
+        // }
+        return value;
     }
     const getHours = () => {
         const hoursInMs = diff % (1000 * 60 * 60 * 24);
@@ -33,7 +46,16 @@ function Countdown() {
     }
     const getSeconds = () => {
         const secondsInMs = diff % (1000 * 60);
-        return Math.floor(secondsInMs / 1000);
+        const value =  Math.floor(secondsInMs / 1000);
+        // if(value !== minutes.value){
+        //     setDays({value: value, animation : true});
+        // }
+        // else{
+        //     if(minutes.animation == true){
+        //         setDays({value : value, animation : false})
+        //     }  
+        // }
+        return value;
     }
     return (
         <div class = "container">
@@ -49,10 +71,30 @@ function Countdown() {
             {/* <div>{diff}</div> */}
             <div id="display">
                 <ul>
-                    <li><span id="days">{getDays()}</span>Days</li>
-                    <li><span id="hours">{getHours()}</span>Hours</li>
-                    <li><span id="minutes">{getMinutes()}</span>Minutes</li>
-                    <li><span id="seconds">{getSeconds()}</span>Seconds</li>
+                    <li>
+                        <span id="days" className="wrapper">
+                            <span >{getDays()}</span>
+                        </span>
+                        Days
+                    </li>
+                    <li>
+                        <span id="hours" className="wrapper">
+                            <span>{getHours()}</span>   
+                        </span>
+                        Hours 
+                    </li>
+                    <li>
+                        <span id="minutes" className="wrapper">
+                            <span>{getMinutes()}</span>
+                        </span>
+                        Minutes
+                    </li>
+                    <li>
+                        <span id="seconds" className="wrapper">
+                            <span>{getSeconds()}</span>
+                        </span>
+                        Seconds
+                    </li>
                 </ul>
             </div>
         </div>
